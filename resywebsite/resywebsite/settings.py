@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     "crispy_bootstrap4",    
     'widget_tweaks',
+    'botui',
 ]
 
 SITE_ID = 1

@@ -6,25 +6,11 @@
     <img class="sidebar-brand-narrow" src="{% static 'logo/logo.png' %}" alt="Resy Bot Application" width="50" height="46">
   </div>
   <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-      <li class="nav-title">Arsip Dinamis</li>
-        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
-            <svg class="nav-icon">
-              <use xlink:href="{% static 'assets/vendors/coreui/icons/svg/free.svg' %}#cil-puzzle"></use>
-            </svg> Arsip Inaktif</a>
-          <ul class="nav-group-items">
-            <li class="nav-item"><a class="nav-link" href=""><span class="nav-icon"></span> Penataan Arsip</a></li>
-            <li class="nav-item"><a class="nav-link" href=""><span class="nav-icon"></span> Berkas Per Klasifikasi</a></li>
-            <li class="nav-item"><a class="nav-link" href=""><span class="nav-icon"></span> Berkas Per Tahun</a></li>
-
-            {% comment %} <li class="nav-item"><a class="nav-link" href=""><span class="nav-icon"></span> Hapus Berkas PDF</a></li> {% endcomment %}
-            <li class="nav-item"><a class="nav-link" href=""><span class="nav-icon"></span> Cari Dokumen</a></li>
-            <li class="nav-item"><a class="nav-link" href=""><span class="nav-icon"></span> Scan Dokumen QR Code</a></li>
-            <li class="nav-item"><a class="nav-link" href=""><span class="nav-icon"></span> Export per Klasifikasi</a></li>
-            <li class="nav-item"><a class="nav-link" href=""><span class="nav-icon"></span> Statistik Scan Per Bulan</a></li>
-            <li class="nav-item"><a class="nav-link" href=""><span class="nav-icon"></span> Daftar Alih Digital</a></li>
-          </ul>
-        </li>
-      </ul>
+      <li class="nav-title"><a class="nav-link"  href="{% url 'botui_show_reservations' %}">Reservation Type</a></li>
+      <li class="nav-title"><a class="nav-link"  href="">Account</a></li>
+      <li class="nav-title"><a class="nav-link"  href="">Proxy</a></li>
+      <li class="nav-title"><a class="nav-link"  href="">Bot Command</a></li>
+  </ul>
   <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable" title="Title"></button>
 </div>
 <!--tes-->

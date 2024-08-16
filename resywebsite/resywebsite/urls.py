@@ -22,5 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("authentication.urls")), # Auth routes - login / register
     path("", include("home.urls")),
+    path('botui/', include('botui.urls')),
+
 
 ]
