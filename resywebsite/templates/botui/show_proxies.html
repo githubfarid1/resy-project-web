@@ -20,13 +20,13 @@
 <div class="container-fluid">
     <div class="d-flex flex-row-reverse bd-highlight">
         <div class="p-2 bd-highlight">
-            <button hx-get="{% url 'botui_add_reservation' %}" hx-target="#dialog" class="btn btn-sm btn-primary">
-                New Reservation
+            <button hx-get="{% url 'botui_add_proxy' %}" hx-target="#dialog" class="btn btn-sm btn-primary">
+                New Proxy
             </button>
         </div>
     
     </div>
-    <div class="row" hx-trigger="load, reservationListChanged from:body" hx-get="{% url 'botui_reservation_list' %}" hx-target="this">
+    <div class="row" hx-trigger="load, proxyListChanged from:body" hx-get="{% url 'botui_proxy_list' %}" hx-target="this">
         <span class="visually-hidden">Loading...</span>
     </div>
     <!-- Placeholder for the modal -->

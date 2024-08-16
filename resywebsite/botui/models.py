@@ -16,7 +16,8 @@ class Account(models.Model):
     id = models.AutoField(primary_key=True)
     email = models.EmailField()
     password = models.CharField(max_length=255)
-    api_key = models.CharField(max_length=1000, null=True)
+    api_key = models.CharField(max_length=255, null=True)
+    token =  models.CharField(max_length=1000, null=True)
     payment_method_id = models.IntegerField(null=True)
 
 class BotCommand(models.Model):

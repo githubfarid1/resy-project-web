@@ -8,6 +8,8 @@
             <thead>
               <tr>
                 <th scope="col">Name</th>
+                <th scope="col">HTTP</th>
+                <th scope="col">HTTPS</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>            
@@ -17,10 +19,12 @@
               <tbody>
                   {% for d in data %}
                   <tr class="table-active">
-                      <td width="85%">{{ d.name }}</td>
-                      <td>
-                        <button type="button" class="btn btn-sm btn-success"  hx-get="{% url 'botui_edit_reservation' pk=d.pk %}" hx-target="#dialog">Edit</button>
-                        <button style="border:none;"><form hx-post="{{ request.path }}" hx-headers='{"X-CSRFToken":"{{ csrf_token }}"}'><a class="btn btn-sm btn-danger" hx-delete="{% url 'botui_remove_reservation' pk=d.pk %}" hx-confirm="Remove Reservation?">Delete</a></form></button>
+                      <td>{{ d.name }}</td>
+                      <td>{{ d.http }}</td>
+                      <td>{{ d.https }}</td>
+                      <td width="15%">
+                        <button type="button" class="btn btn-sm btn-success"  hx-get="{% url 'botui_edit_proxy' pk=d.pk %}" hx-target="#dialog">Edit</button>
+                        <button style="border:none;"><form hx-post="{{ request.path }}" hx-headers='{"X-CSRFToken":"{{ csrf_token }}"}'><a class="btn btn-sm btn-danger" hx-delete="{% url 'botui_remove_proxy' pk=d.pk %}" hx-confirm="Remove Reservation?">Delete</a></form></button>
                       </td>  
                   </tr>
                   {% endfor %}
