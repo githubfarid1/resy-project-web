@@ -15,4 +15,10 @@ urlpatterns = [
     path(route='proxy/<int:pk>/edit', view=views.edit_proxy, name=prefix + "edit_proxy"),
     path(route='proxy/<int:pk>/remove', view=views.remove_proxy, name=prefix + 'remove_proxy'),
 
+    path(route='accounts', view=views.show_accounts, name=prefix + "show_accounts"),
+    path(route='account_list', view=views.account_list, name=prefix + "account_list"),
+    path(route='add_account', view=views.add_account, name=prefix + "add_account"),
+    path(route='account/<int:pk>/edit', view=views.edit_account, name=prefix + "edit_account"),
+    path(route='account/<int:pk>/remove', view=views.remove_account, name=prefix + 'remove_account'),
+    
 ]

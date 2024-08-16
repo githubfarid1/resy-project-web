@@ -7,9 +7,9 @@
   </div>
   <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
       <li class="nav-title"><a class="nav-link"  href="{% url 'botui_show_reservations' %}">Reservation Type</a></li>
-      <li class="nav-title"><a class="nav-link"  href="{% url 'botui_show_reservations' %}">Account</a></li>
+      <li class="nav-title"><a class="nav-link"  href="{% url 'botui_show_accounts' %}">Account</a></li>
       <li class="nav-title"><a class="nav-link"  href="{% url 'botui_show_proxies' %}">Proxy</a></li>
-      <li class="nav-title"><a class="nav-link"  href="{% url 'botui_show_reservations' %}">Bot Command</a></li>
+      {% comment %} <li class="nav-title"><a class="nav-link"  href="{% url 'botui_show_reservations' %}">Bot Command</a></li> {% endcomment %}
   </ul>
   <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable" title="Title"></button>
 </div>

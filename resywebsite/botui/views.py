@@ -3,7 +3,7 @@ import os
 from django.shortcuts import render, get_object_or_404, redirect, get_list_or_404
 from .models import ReservationType, Account, BotCommand, Proxy
 import json
-from .forms import ReservationForm, ProxyForm
+from .forms import ReservationForm, ProxyForm, AccountForm
 from django.http import HttpResponse, Http404, JsonResponse
 from django.views.decorators.http import require_POST
 
@@ -149,5 +149,77 @@ def remove_proxy(request, pk):
             'HX-Trigger': json.dumps({
                 "proxyListChanged": None,
                 "showMessage": f"{proxy.name} deleted."
+            })
+        })
+
+
+def show_accounts(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    context = {
+    }
+    return render(request=request, template_name='botui/show_accounts.html', context=context)
+
+def account_list(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    accounts = Account.objects.all()
+    return render(request, 'botui/account_list.html', {
+        'data': accounts,
+    })
+
+def add_account(request):
+    if request.method == "POST":
+        form = AccountForm(request.POST)
+        if form.is_valid():
+            account = form.save()
+            return HttpResponse(
+                status=204,
+                headers={
+                    'HX-Trigger': json.dumps({
+                        "accountListChanged": None,
+                        "showMessage": f"{account.email} added."
+                    })
+                })
+    else:
+        form = AccountForm()
+    return render(request, 'botui/account_form.html', {
+        'form': form,
+        'module': 'Add Data'
+    })
+
+def edit_account(request, pk):
+    account = get_object_or_404(Account, pk=pk)
+    # return HttpResponse(year.id)
+    if request.method == "POST":
+        form = AccountForm(request.POST, instance=account)
+        if form.is_valid():
+            form.save()
+            return HttpResponse(
+                status=204,
+                headers={
+                    'HX-Trigger': json.dumps({
+                        "accountListChanged": None,
+                        "showMessage": f"{account.email} updated."
+                    })
+                }
+            )
+    else:
+        form = AccountForm(instance=account)
+    return render(request, 'botui/account_form.html', {
+        'form': form,
+        'account': account,
+        'module': 'Edit Data'
+    })
+
+def remove_account(request, pk):
+    account = get_object_or_404(Account, pk=pk)
+    account.delete()
+    return HttpResponse(
+        status=204,
+        headers={
+            'HX-Trigger': json.dumps({
+                "accountListChanged": None,
+                "showMessage": f"{account.email} deleted."
             })
         })
